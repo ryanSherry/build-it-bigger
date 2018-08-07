@@ -3,7 +3,7 @@
     package="com.rsherry.androidlibrarydisplayjoke">
 
     <application>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivityAndroidLibrary"></activity>
     </application>
 
 </manifest>
