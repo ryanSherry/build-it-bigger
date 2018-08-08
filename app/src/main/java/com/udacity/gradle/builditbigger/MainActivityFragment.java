@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,10 @@ import com.rsherry.javalibraryjokeprovider.JokeProvider;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment implements View.OnClickListener {
+public class MainActivityFragment extends Fragment implements View.OnClickListener, JokeTaskCompleted {
+
+    //    JokeProvider mJokeProvider = new JokeProvider();
+    String mJoke;
 
     public MainActivityFragment() {
     }
@@ -43,14 +47,12 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
         return root;
     }
 
-    public void tellJoke() {
-        JokeProvider mJokeProvider = new JokeProvider();
-        String joke = mJokeProvider.getJoke();
-
+    public void tellJoke(String string) {
+        String joke = string;
         Bundle jokeBundle = new Bundle();
         jokeBundle.putString("joke",joke);
 
-        Toast.makeText(getActivity(), joke , Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), joke , Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(getActivity(), MainActivityAndroidLibrary.class);
         intent.putExtra("joke",jokeBundle);
@@ -62,8 +64,19 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.showJokeButton:
-                tellJoke();
+                new EndpointsAsyncTask(new JokeTaskCompleted() {
+                    @Override
+                    public void onJokeTaskCompleted(String output) {
+                        mJoke = output;
+                        tellJoke(output);
+                    }
+                }).execute();
                 break;
         }
+    }
+
+    @Override
+    public void onJokeTaskCompleted(String string) {
+        tellJoke(string);
     }
 }

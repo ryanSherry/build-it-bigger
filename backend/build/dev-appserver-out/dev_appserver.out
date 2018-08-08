@@ -1,0 +1,21 @@
+Warning: Google App Engine Java 7 runtime is deprecated.
+Warning: See https://cloud.google.com/appengine/docs/deprecations/java7
+Aug 08, 2018 12:22:42 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+INFO: Overwriting system property key 'java.util.logging.config.file', value '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/platform/google_appengine/google/appengine/tools/java/config/sdk/logging.properties' with value 'WEB-INF/logging.properties' from '/Users/ryansherry/Documents/Udacity Android Developer Nano Degree/Projects/Build it Bigger/backend/build/exploded-backend/WEB-INF/appengine-web.xml'
+Aug 08, 2018 12:22:42 PM com.google.apphosting.utils.jetty.JettyLogger info
+INFO: Logging to JettyLogger(null) via com.google.apphosting.utils.jetty.JettyLogger
+Aug 08, 2018 7:22:42 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+WARNING: Your working directory, (/Users/ryansherry/Documents/Udacity Android Developer Nano Degree/Projects/Build it Bigger/backend) is not equal to your 
+web application root (/Users/ryansherry/Documents/Udacity Android Developer Nano Degree/Projects/Build it Bigger/backend/build/exploded-backend)
+You will not be able to access files from your working directory on the production server.
+
+Aug 08, 2018 7:22:42 PM com.google.apphosting.utils.jetty.JettyLogger info
+INFO: jetty-6.1.x
+Aug 08, 2018 7:22:43 PM com.google.apphosting.utils.jetty.JettyLogger info
+INFO: Started SelectChannelConnector@localhost:8080
+Aug 08, 2018 7:22:43 PM com.google.appengine.tools.development.AbstractModule startup
+INFO: Module instance default is running at http://localhost:8080/
+Aug 08, 2018 7:22:43 PM com.google.appengine.tools.development.AbstractModule startup
+INFO: The admin console is running at http://localhost:8080/_ah/admin
+Aug 08, 2018 12:22:43 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+INFO: Dev App Server is now running
