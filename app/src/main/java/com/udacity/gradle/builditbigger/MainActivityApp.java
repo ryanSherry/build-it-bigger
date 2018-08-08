@@ -5,21 +5,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.rsherry.androidlibrarydisplayjoke.MainActivityAndroidLibrary;
 import com.rsherry.javalibraryjokeprovider.JokeProvider;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityApp extends AppCompatActivity {
 
     JokeProvider mJokeProvider = new JokeProvider();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.app_activity_main);
     }
 
 
@@ -45,11 +44,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
-        Toast.makeText(this, mJokeProvider.getJoke(), Toast.LENGTH_SHORT).show();
+    public void tellJokeUnused() {
+        String joke = mJokeProvider.getJoke();
+
+        Bundle jokeBundle = new Bundle();
+        jokeBundle.putString("joke",joke);
+
+        Toast.makeText(this, joke , Toast.LENGTH_SHORT).show();
+
         Intent intent = new Intent(this, MainActivityAndroidLibrary.class);
+        intent.putExtra("joke",jokeBundle);
+
         startActivity(intent);
     }
-
-
 }

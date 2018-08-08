@@ -17,10 +17,10 @@ public class ShowJokeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_show_joke,container,false);
         mJokeText = view.findViewById(R.id.showJokeTextView);
 
-        Bundle bundle = this.getArguments();
+        Bundle jokeBundle = this.getArguments();
 
-        if(bundle != null) {
-            String joke = bundle.getString("joke");
+        if(jokeBundle != null) {
+            String joke = jokeBundle.getString("joke");
             mJokeText.setText(joke);
         }
 
