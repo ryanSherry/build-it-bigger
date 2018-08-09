@@ -42,18 +42,4 @@ public class MainActivityAppPaid extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void tellJokeUnused() {
-        String joke = mJokeProvider.getJoke();
-
-        Bundle jokeBundle = new Bundle();
-        jokeBundle.putString("joke",joke);
-
-        Toast.makeText(this, joke , Toast.LENGTH_SHORT).show();
-
-        Intent intent = new Intent(this, MainActivityAndroidLibrary.class);
-        intent.putExtra("joke",jokeBundle);
-
-        startActivity(intent);
-    }
 }
