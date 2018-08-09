@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class EndpointsAsyncTaskReturnsNonEmptyStringTest {
     public static final String TAG = "EndpointsAsyncTaskReturnsNonEmptyStringTest";
+
     @Test
     public void endpointsAsyncTaskReturnsNonEmptyString() {
         new EndpointsAsyncTask(new JokeTaskCompleted() {
@@ -24,8 +25,8 @@ public class EndpointsAsyncTaskReturnsNonEmptyStringTest {
             public void onJokeTaskCompleted(String output) {
                 Assert.assertNotEquals("", output);
                 Assert.assertNotNull(output);
-                Assert.assertFalse("Failed to connect to backend server, make sure it is properly configured and running",output.contains("Failed to connect"));
-                Log.d(TAG,"here is the value of the returned string " + output);
+                Assert.assertFalse("Failed to connect to backend server, make sure it is properly configured and running", output.contains("Failed to connect"));
+                Log.d(TAG, "here is the value of the returned string " + output);
             }
         }).execute();
     }

@@ -19,13 +19,14 @@ public class EndpointsAsyncTask extends AsyncTask<String, Void, String> {
     private static MyApi myApiService = null;
 
     private JokeTaskCompleted listener;
+
     public EndpointsAsyncTask(JokeTaskCompleted listener) {
         this.listener = listener;
     }
 
     @Override
     protected String doInBackground(String... params) {
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver

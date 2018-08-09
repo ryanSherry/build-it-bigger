@@ -35,10 +35,10 @@ public class MainActivityFragmentPaid extends Fragment implements View.OnClickLi
     public void tellJoke(String string) {
         String joke = string;
         Bundle jokeBundle = new Bundle();
-        jokeBundle.putString("joke",joke);
+        jokeBundle.putString("joke", joke);
 
         Intent intent = new Intent(getActivity(), MainActivityAndroidLibrary.class);
-        intent.putExtra("joke",jokeBundle);
+        intent.putExtra("joke", jokeBundle);
 
         startActivity(intent);
     }
